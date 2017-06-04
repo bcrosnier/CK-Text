@@ -48,6 +48,19 @@ if (!(Test-Path $nugetExe)) {
     }
 }
 
+# Try and download docfx.exe if necessary
+$docfxExe = Join-Path $toolsDir "docfx.exe"
+if (!(Test-Path $docfxExe)) {
+	Add-Type -assembly "system.io.compression.filesystem"
+	$docfxZipPath = [System.IO.Path]::GetTempFileName()
+    Invoke-WebRequest -Uri https://github.com/dotnet/docfx/releases/download/v2.18.2/docfx.zip -OutFile $docfxZipPath
+	[io.compression.zipfile]::ExtractToDirectory($docfxZipPath, $toolsDir)
+    # Make sure docfx extraction worked.
+    if (!(Test-Path $docfxExe)) {
+        Throw "Could not find docfx.exe after unzipping it"
+    }
+}
+
 $nugetConfigFile = Join-Path $solutionDir "NuGet.config"
 &$nugetExe restore $builderPackageConfig -SolutionDirectory $solutionDir -configfile $nugetConfigFile
 
