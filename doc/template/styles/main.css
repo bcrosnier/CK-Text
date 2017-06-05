@@ -1,0 +1,8 @@
+.navbar-brand > img, .navbar-brand > svg {
+    vertical-align: middle;
+    display: inline-block;
+}
+.navbar-brand > .app-name {
+    padding: 15px 15px 15px 0;
+    display: inline-block;
+}
