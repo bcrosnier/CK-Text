@@ -62,6 +62,9 @@
         ]
       }
     ],
+    "xref": [
+      "packages/msdn.4.5.2.0.1.0-alpha-1611021200/content/msdn.4.5.2.zip"
+    ],
     "dest": "doc/_site",
     "globalMetadataFiles": [],
     "globalMetadata": {
