@@ -7,7 +7,8 @@
       "src": [
         {
           "files": [
-            "CK.Text/CK.Text.csproj"
+            "CK.Text/CK.Text.csproj",
+            "CK.Text.Virtual/CK.Text.Virtual.csproj"
           ],
           "exclude": [
             "**/obj/**",
